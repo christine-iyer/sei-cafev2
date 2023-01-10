@@ -1,8 +1,7 @@
-
 import { useState, useEffect, useRef } from 'react';
 import * as itemsAPI from '../../utilities/items-api';
-import * as ordersAPI from '../../utilities/orders-api';
-import styles from './NewOrderPage.module.css';
+import * as ordersAPI from '../../utilities/order-api';
+import styles from './NewOrderPage.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import MenuList from '../../components/MenuList/MenuList';
 import CategoryList from '../../components/CategoryList/CategoryList';

@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { TRUE } = require('sass');
 const Schema = mongoose.Schema;
 
 const categorySchema = new Schema({

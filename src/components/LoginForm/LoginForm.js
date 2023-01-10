@@ -16,10 +16,10 @@ export default function LoginForm ({ setUser }) {
   const handleSubmit = async (evt) => {
     evt.preventDefault()
     try {
-      const user = await userService.login(credentials)
+      const user = await userService.login(credentials);
       setUser(user)
-    } catch (error) {
-      setError(error.message)
+    } catch {
+      setError('Log In Failed - Try Again');
     }
   }
 
@@ -28,7 +28,7 @@ export default function LoginForm ({ setUser }) {
       <div className='form-container'>
         <form autoComplete='off' onSubmit={handleSubmit}>
           <label>Email</label>
-          <input type='email' name='email' value={credentials.email} onChange={handleChange} required />
+          <input type='text' name='email' value={credentials.email} onChange={handleChange} required />
           <label>Password</label>
           <input type='password' name='password' value={credentials.password} onChange={handleChange} required />
           <button type='submit'>LOG IN</button>

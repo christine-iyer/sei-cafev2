@@ -1,23 +1,11 @@
-import { getToken } from './users-service';
+import sendRequest from './send-request';
 
 const BASE_URL = '/api/items';
 
 export function getAll() {
-  const options = getOptionsGet();
-  return fetch(BASE_URL, options).then(res => res.json());
+  return sendRequest(BASE_URL);
 }
 
 export function getById(id) {
-  const options = getOptionsGet();
-  return fetch(`${BASE_URL}/${id}`, options).then(res => res.json());
-}
-
-/*-- Helper Functions --*/
-
-function getOptionsGet() {
-  return {
-    headers: {
-      Authorization: `Bearer ${getToken()}`
-    }
-  };
+  return sendRequest(`${BASE_URL}/${id}`);
 }

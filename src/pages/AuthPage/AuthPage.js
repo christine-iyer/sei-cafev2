@@ -1,5 +1,6 @@
 // AuthPage.js
-
+import { useState } from 'react';
+import styles from './AuthPage.module.scss';
 import SignUpForm from "../../components/SignUpForm/SignUpForm"
 import LoginForm from "../../components/LoginForm/LoginForm"
 

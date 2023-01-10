@@ -5,9 +5,9 @@ export default function MenuList({ menuItems, handleAddToOrder }) {
   const items = menuItems.map(item =>
     <MenuListItem
       key={item._id}
-      menuItem={item}
       handleAddToOrder={handleAddToOrder}
-    />
+      menuItem={item}
+      />
   );
   return (
     <main className="MenuList">
