@@ -1,105 +1,78 @@
-/*
-Create
-Read (Index & Show)
-Update
-Destroy
-*/
-import { useState, useEffect } from 'react'
 
+import { useState, useEffect, useRef } from 'react';
+import * as itemsAPI from '../../utilities/items-api';
+import * as ordersAPI from '../../utilities/orders-api';
+import styles from './NewOrderPage.module.css';
+import { Link, useNavigate } from 'react-router-dom';
+import MenuList from '../../components/MenuList/MenuList';
+import CategoryList from '../../components/CategoryList/CategoryList';
+import OrderDetail from '../../components/OrderDetail/OrderDetail';
+import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
-export default function FruitsPage (props){
-    const [fruits, setFruits] = useState([])
-    const [foundFruit, setFoundFruit] = useState(null)
-    const [newFruit, setNewFruit] = useState({
-        name: '',
-        readyToEat: false,
-        color: ''
-    })
-    // index
-    const getFruits = async () => {
-        try {
-            const response = await fetch('/api/fruits')
-            const data = await response.json()
-            setFruits(data)
-        } catch (error) {
-            console.error(error)
-        }
+export default function NewOrderPage({ user, setUser }) {
+  const [menuItems, setMenuItems] = useState([]);
+  const [activeCat, setActiveCat] = useState('');
+  const [cart, setCart] = useState(null);
+  const categoriesRef = useRef([]);
+  const navigate = useNavigate();
+
+  useEffect(function() {
+    async function getItems() {
+      const items = await itemsAPI.getAll();
+      categoriesRef.current = items.reduce((cats, item) => {
+        const cat = item.category.name;
+        return cats.includes(cat) ? cats : [...cats, cat];
+      }, []);
+      setMenuItems(items);
+      setActiveCat(categoriesRef.current[0]);
     }
-    // delete
-    const deleteFruit = async (id) => {
-        try {
-            const response = await fetch(`/api/fruits/${id}`, {
-                method: "DELETE",
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            const data = await response.json()
-            setFoundFruit(data)
-        } catch (error) {
-            console.error(error)
-        }
+    getItems();
+    async function getCart() {
+      const cart = await ordersAPI.getCart();
+      setCart(cart);
     }
-    // update
-    const updateFruit = async (id, updatedData) => {
-        try {
-            const response = await fetch(`/api/fruits/${id}`, {
-                method: "PUT",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({...updatedData})
-            })
-            const data = await response.json()
-            setFoundFruit(data)
-        } catch (error) {
-            console.error(error)
-        }
-    }
-    // create
-        const createFruit = async () => {
-            try {
-                const response = await fetch(`/api/fruits`, {
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({...newFruit})
-                })
-                const data = await response.json()
-                setFoundFruit(data)
-                setNewFruit({
-                    name: '',
-                    readyToEat: false,
-                    color: ''
-                })
-            } catch (error) {
-                console.error(error)
-            }
-        }
+    getCart();
+  }, []);
+  // Providing an empty 'dependency array'
+  // results in the effect running after
+  // the FIRST render only
 
-    const handleChange = (evt) => {
-        setNewFruit({...newFruit, [evt.target.name]: evt.target.value})
-    }
+  /*-- Event Handlers --*/
+  async function handleAddToOrder(itemId) {
+    const updatedCart = await ordersAPI.addItemToCart(itemId);
+    setCart(updatedCart);
+  }
 
-    useEffect(()=> {
-        getFruits()
-    }, [foundFruit])
+  async function handleChangeQty(itemId, newQty) {
+    const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
+    setCart(updatedCart);
+  }
 
-    return (
-        <>
+  async function handleCheckout() {
+    await ordersAPI.checkout();
+    navigate('/orders');
+  }
 
-            {'Name '}<input value={newFruit.name} onChange={handleChange} name="name"></input><br/>
-            {'Color '}<input value={newFruit.color} onChange={handleChange} name="color"></input><br/>
-            {'Ready To Eat '}<input type="checkbox" checked={newFruit.readyToEat} onChange={(evt) => setNewFruit({...newFruit, readyToEat: evt.target.checked })}></input><br/>
-            <button onClick={() => createFruit() }>Create A New Fruit</button>
-            {
-                foundFruit? <div>
-                    <h1>{foundFruit.name}</h1>
-                    <h2>{foundFruit.color}</h2>
-                    <h3>{foundFruit.readyToEat? 'I am ready': 'I am not ready'}</h3>
-                </div>: <>No Fruit in Found Fruit State</>
-            }
-        </>
-    )
+  return (
+    <main className={styles.NewOrderPage}>
+      <aside>
+        <CategoryList
+          categories={categoriesRef.current}
+          cart={setCart}
+          setActiveCat={setActiveCat}
+        />
+        <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
+        <UserLogOut user={user} setUser={setUser} />
+      </aside>
+      <MenuList
+        menuItems={menuItems.filter(item => item.category.name === activeCat)}
+        handleAddToOrder={handleAddToOrder}
+      />
+      <OrderDetail
+        order={cart}
+        handleChangeQty={handleChangeQty}
+        handleCheckout={handleCheckout}
+      />
+    </main>
+  );
 }

@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+/*
+Create
+Read (Index & Show)
+Update
+Destroy
+*/
+// import { useState, useEffect } from 'react'
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+// export default function FruitsPage (props){
+//     const [fruits, setFruits] = useState([])
+//     const [foundFruit, setFoundFruit] = useState(null)
+//     const [newFruit, setNewFruit] = useState({
+//         name: '',
+//         readyToEat: false,
+//         color: ''
+//     })
+//     // index
+//     const getFruits = async () => {
+//         try {
+//             const response = await fetch('/api/fruits')
+//             const data = await response.json()
+//             setFruits(data)
+//         } catch (error) {
+//             console.error(error)
+//         }
+//     }
+//     // delete
+//     const deleteFruit = async (id) => {
+//         try {
+//             const response = await fetch(`/api/fruits/${id}`, {
+//                 method: "DELETE",
+//                 headers: {
+//                     'Content-Type': 'application/json'
+//                 }
+//             })
+//             const data = await response.json()
+//             setFoundFruit(data)
+//         } catch (error) {
+//             console.error(error)
+//         }
+//     }
+//     // update
+//     const updateFruit = async (id, updatedData) => {
+//         try {
+//             const response = await fetch(`/api/fruits/${id}`, {
+//                 method: "PUT",
+//                 headers: {
+//                     'Content-Type': 'application/json'
+//                 },
+//                 body: JSON.stringify({...updatedData})
+//             })
+//             const data = await response.json()
+//             setFoundFruit(data)
+//         } catch (error) {
+//             console.error(error)
+//         }
+//     }
+//     // create
+//         const createFruit = async () => {
+//             try {
+//                 const response = await fetch(`/api/fruits`, {
+//                     method: "POST",
+//                     headers: {
+//                         'Content-Type': 'application/json'
+//                     },
+//                     body: JSON.stringify({...newFruit})
+//                 })
+//                 const data = await response.json()
+//                 setFoundFruit(data)
+//                 setNewFruit({
+//                     name: '',
+//                     readyToEat: false,
+//                     color: ''
+//                 })
+//             } catch (error) {
+//                 console.error(error)
+//             }
+//         }
 
-In the project directory, you can run:
+//     const handleChange = (evt) => {
+//         setNewFruit({...newFruit, [evt.target.name]: evt.target.value})
+//     }
 
-### `npm start`
+//     useEffect(()=> {
+//         getFruits()
+//     }, [foundFruit])
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+//     return (
+//         <>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+//             {'Name '}<input value={newFruit.name} onChange={handleChange} name="name"></input><br/>
+//             {'Color '}<input value={newFruit.color} onChange={handleChange} name="color"></input><br/>
+//             {'Ready To Eat '}<input type="checkbox" checked={newFruit.readyToEat} onChange={(evt) => setNewFruit({...newFruit, readyToEat: evt.target.checked })}></input><br/>
+//             <button onClick={() => createFruit() }>Create A New Fruit</button>
+//             {
+//                 foundFruit? <div>
+//                     <h1>{foundFruit.name}</h1>
+//                     <h2>{foundFruit.color}</h2>
+//                     <h3>{foundFruit.readyToEat? 'I am ready': 'I am not ready'}</h3>
+//                 </div>: <>No Fruit in Found Fruit State</>
+//             }
+//         </>
+//     )
+// }
