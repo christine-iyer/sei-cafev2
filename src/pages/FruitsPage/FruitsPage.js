@@ -1,14 +1,8 @@
-/*
-Create
-Read (Index & Show)
-Update
-Destroy
-*/
 import { useState, useEffect } from 'react'
+import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
 
-
-export default function FruitsPage (props){
+export default function FruitsPage ({ user, setUser }){
     const [fruits, setFruits] = useState([])
     const [foundFruit, setFoundFruit] = useState(null)
     const [newFruit, setNewFruit] = useState({
@@ -114,6 +108,7 @@ export default function FruitsPage (props){
                     <h3>{foundFruit.readyToEat? 'I am ready': 'I am not ready'}</h3>
                 </div>: <>No Fruit in Found Fruit State</>
             }
+            <UserLogOut user={user} setUser={setUser} />
         </>
     )
 }
