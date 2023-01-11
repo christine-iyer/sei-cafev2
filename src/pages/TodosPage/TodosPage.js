@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import TodoList from './components/TodoList/TodoList'
+import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
-export default function ToDoList(){
+
+export default function ToDosPage({ user, setUser }){
      const [todos, setTodos] = useState([])
      const [completedTodos, setCompletedTodos] = useState([])
      const [newTodo, setNewTodo] = useState({
@@ -90,7 +91,7 @@ export default function ToDoList(){
      }, [])
      return(
          <>
-             <TodoList
+             
              newTodo={newTodo}
              setNewTodo={setNewTodo}
              createNewTodo={createNewTodo}
@@ -98,7 +99,7 @@ export default function ToDoList(){
              moveToCompleted={moveToCompleted}
              completedTodos={completedTodos}
              deleteATodo={deleteATodo}
-             />
+             
          </>
      )
  }
