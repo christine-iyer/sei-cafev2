@@ -12,7 +12,7 @@ export default function CategoryList({ categories, activeCat, setActiveCat }) {
     </li>
   );
   return (
-    <ul className="CategoryList">
+    <ul className={styles.categorylist}>
       {cats}
     </ul>
   );

@@ -1,4 +1,8 @@
 .nav {
      text-decoration: double;
+     color: var(--green-1);
      font-size: 33px;
+     * {
+          color: var(--green-2);
+     }
 }

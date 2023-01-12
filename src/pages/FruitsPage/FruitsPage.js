@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import UserLogOut from '../../components/UserLogOut/UserLogOut';
+
 
 
 export default function FruitsPage ({ user, setUser }){
@@ -108,7 +108,7 @@ export default function FruitsPage ({ user, setUser }){
                     <h3>{foundFruit.readyToEat? 'I am ready': 'I am not ready'}</h3>
                 </div>: <>No Fruit in Found Fruit State</>
             }
-            <UserLogOut user={user} setUser={setUser} />
+            
         </>
     )
 }

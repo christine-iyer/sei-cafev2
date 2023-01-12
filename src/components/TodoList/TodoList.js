@@ -1,3 +1,4 @@
+import styles from './TodoList.module.scss'
 import Todo from '../Todo/Todo'
 
 export default function TodoList({
@@ -8,7 +9,7 @@ export default function TodoList({
     editTodoText
   }) {
     return (
-      <>
+      <div className={styles.todolist}>
         <h1>Create Todo</h1>
         <input
           type="text"
@@ -19,7 +20,7 @@ export default function TodoList({
         {todos.length ? (
           <>
             <h1>Todo Items</h1>
-            <ul className="todolist">
+            <ul>
               {todos
                 .filter((i) => !i.completed)
                 .map((todo) => {
@@ -35,7 +36,7 @@ export default function TodoList({
                 })}
             </ul>
             <h1>Completed Items </h1>
-            <ul className="todolist">
+            <ul className={styles.todolist}>
               {todos
                 .filter((i) => i.completed)
                 .map((todo) => {
@@ -54,6 +55,6 @@ export default function TodoList({
         ) : (
           <h1>No Todos Added Yet</h1>
         )}
-      </>
+      </div>
     )
   }

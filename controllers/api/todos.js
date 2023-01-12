@@ -67,7 +67,7 @@ async function updateTodo(req,res,next) {
      } catch (error) {
           res.status(400).json({ msg: error.message })          
      }
-
+}
      async function destroyTodo(req, res, next){
           try {
               const todo = await Todo.findByIdAndDelete(req.params.id)
@@ -78,4 +78,3 @@ async function updateTodo(req,res,next) {
           }
       }
       
-}
