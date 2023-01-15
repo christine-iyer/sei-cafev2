@@ -1,7 +1,8 @@
 .todolist {
-     flex-direction: column;
+     display: flex;
+     flex-direction: row;
      justify-content: flex-start;
-     align-items: center;
+     align-items: stretch;
      padding: 3vmin;
      font-size: 2vmin;
      background-color: var(--pink-4);
