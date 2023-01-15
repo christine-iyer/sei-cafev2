@@ -9,7 +9,7 @@ export default function TodoList({
     editTodoText
   }) {
     return (
-      <div className={styles.todolist}>
+      <div >
         <h1>Create Todo</h1>
         <input
           type="text"
@@ -18,9 +18,10 @@ export default function TodoList({
           }}
         />
         {todos.length ? (
-          <>
+          <div className={styles.FlexContainer}>
+            <div>
             <h1>Todo Items</h1>
-            <ul>
+            <ul className={styles.NotCompleted}>
               {todos
                 .filter((i) => !i.completed)
                 .map((todo) => {
@@ -35,8 +36,11 @@ export default function TodoList({
                   )
                 })}
             </ul>
+            </div>
+
+            <div>
             <h1>Completed Items </h1>
-            <ul className={styles.todolist}>
+            <ul className={styles.Completed}>
               {todos
                 .filter((i) => i.completed)
                 .map((todo) => {
@@ -51,7 +55,8 @@ export default function TodoList({
                   )
                 })}
             </ul>
-          </>
+            </div>
+          </div>
         ) : (
           <h1>No Todos Added Yet</h1>
         )}
