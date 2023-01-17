@@ -14,6 +14,7 @@ const dataController = {
     try {
       const user = await User.create(req.body)
       console.log(req.body)
+      console.log("Lets Go!!!!!!")
       // token will be a string
       const token = createJWT(user)
       // send back the token as a string
@@ -21,9 +22,10 @@ const dataController = {
       // in the client
       res.locals.data.user = user
       res.locals.data.token = token
+      console.log("")
       next()
     } catch (e) {
-      console.log('you got a database problem')
+      console.log('you got a database problem', e)
       res.status(400).json(e)
     }
   },
@@ -57,12 +59,10 @@ module.exports = {
 /* -- Helper Functions -- */
 
 function createJWT (user) {
-  
-  return jwt.sign({ user }, process.env.SECRET, { allowInsecureKeySizes: true, expiresIn: '24h' })
-//   return jwt.sign(
-//     // data payload
-//     { user },
-//     process.env.SECRET,
-//     { expiresIn: '24h' }
-//   )
- }
+  return jwt.sign(
+    // data payload
+    { user },
+    process.env.SECRET,
+    { expiresIn: '24h' }
+  )
+}

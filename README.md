@@ -2,12 +2,14 @@
 
 ```
 {
-     "name": "Anyname",
-     "email": "Email@gmail.com",
-     "password": "password",
-     "confirm": "Password"
+     "name": "pauline",
+     "email": "pauline@gmail.com",
+     "password": "pauline",
+     "confirm": "pauline"
 }
 ```
+**Error 400
+
 // POST /api/users/login
 
 {
