@@ -1,6 +1,13 @@
 /* CSS Custom Properties */
 :root {
-  --pink-1: rgba(235,210,188,1);
+  --blue-1: #38afb5;
+  --blue-2: #8bcfce;
+  --blue-3: #c7e9e9;
+  --grey: #a9b1b1;
+  --orange: #ca8e3e;
+  --white: #fae8d1;
+  --text-dark:#5d3603;
+  /* --pink-1: rgba(235,210,188,1);
   --pink-2: rgba(235,210,188,0.85);
   --pink-3: rgba(235,210,188, 0.75);
   --pink-4: rgba(235,210,188,0.65);
@@ -23,7 +30,7 @@
   --text-1: rgba(42,39,35,1);
   --text-2: rgba(42,39,35,0.85);
   --text-3: rgba(42,39,35,0.65);
-  --text-4: rgba(42,39,35,0.55);
+  --text-4: rgba(42,39,35,0.55); */
 }
   
   *, *:before, *:after {

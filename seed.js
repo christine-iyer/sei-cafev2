@@ -8,13 +8,10 @@ const Item = require('../models/item');
 
   await Category.deleteMany({});
   const categories = await Category.create([
-    {name: 'Reds', sortOrder: 10},
-    {name: 'Oranges', sortOrder: 20},
-    {name: 'Yellows', sortOrder: 30},
-    {name: 'Greens', sortOrder: 40},
-    {name: 'Blues', sortOrder: 50},
-    {name: 'Indigos', sortOrder: 60},
-    {name: 'Violets', sortOrder: 70},
+    {name: 'Sativas', sortOrder: 10},
+    {name: 'Indicas', sortOrder: 20},
+    {name: 'Hybrids', sortOrder: 30},
+    
   ]);
 
   await Item.deleteMany({});
@@ -27,20 +24,20 @@ const Item = require('../models/item');
     {name: 'Orange-3', emoji: '🇲🇾 ', category: categories[1], price: 25.95},
     {name: 'Yellow-1', emoji: '🇲🇾 ', category: categories[2], price: 1.95},
     {name: 'Yellow-2', emoji: '🇲🇾 ', category: categories[2], price: 4.95},
-    {name: 'Green-1', emoji: '🇲🇾 ', category: categories[3], price: 3.95},
-    {name: 'Green-2', emoji: '🇲🇾 ', category: categories[3], price: 7.95},
-    {name: 'Green-3', emoji: '🇲🇾 ', category: categories[3], price: 1.95},
-    {name: 'Blue-1', emoji: '🇲🇾 ', category: categories[4], price: 2.95},
-    {name: 'Blue-2', emoji: '🇲🇾 ', category: categories[4], price: 3.95},
-    {name: 'Indigo-1', emoji: '🇲🇾 ', category: categories[5], price: 1.95},
-    {name: 'Indigo-2', emoji: '🇲🇾 ', category: categories[5], price: 0.95},
-    {name: 'Indigo-3', emoji: '🇲🇾 ', category: categories[5], price: 2.95},
-    {name: 'Indigo-4', emoji: '🇲🇾 ', category: categories[5], price: 3.95},
-    {name: 'Violet-1', emoji: '🇲🇾 ', category: categories[6], price: 0.95},
-    {name: 'Violet-2', emoji: '🇲🇾 ', category: categories[6], price: 0.95},
-    {name: 'Violet-3', emoji: '🇲🇾 ', category: categories[6], price: 8.95},
-    {name: 'Violet-5', emoji: '🇲🇾 ', category: categories[6], price: 3.95},
-    {name: 'Violet-5', emoji: '🇲🇾 ', category: categories[6], price: 7.95},
+    {name: 'Yellow-3', emoji: '🇲🇾 ', category: categories[2], price: 3.95},
+    {name: 'Yellow-4', emoji: '🇲🇾 ', category: categories[2], price: 7.95},
+    {name: 'Yellow-5', emoji: '🇲🇾 ', category: categories[2], price: 1.95},
+    {name: 'Red-1', emoji: '🇲🇾 ', category: categories[0], price: 2.95},
+    {name: 'Red-2', emoji: '🇲🇾 ', category: categories[0], price: 3.95},
+    {name: 'Orange-4', emoji: '🇲🇾 ', category: categories[1], price: 1.95},
+    {name: 'Orange-5', emoji: '🇲🇾 ', category: categories[1], price: 0.95},
+    {name: 'Orange-6', emoji: '🇲🇾 ', category: categories[1], price: 2.95},
+    {name: 'Orange-7', emoji: '🇲🇾 ', category: categories[1], price: 3.95},
+    {name: 'Orange-8', emoji: '🇲🇾 ', category: categories[1], price: 0.95},
+    {name: 'Red-2', emoji: '🇲🇾 ', category: categories[0], price: 0.95},
+    {name: 'Red-3', emoji: '🇲🇾 ', category: categories[0], price: 8.95},
+    {name: 'Orange-8', emoji: '🇲🇾 ', category: categories[1], price: 3.95},
+    {name: 'Yellow-5', emoji: '🇲🇾 ', category: categories[2], price: 7.95},
   ]);
 
   console.log(items)

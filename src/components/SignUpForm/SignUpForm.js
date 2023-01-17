@@ -56,7 +56,7 @@ render() {
           <button type="submit" disabled={disable}>SIGN UP</button>
         </form>
       </div>
-      <p className="error-message">&nbsp;{this.state.error}</p>
+      <p className={styles.ErrorMessage}>&nbsp;{this.state.error}</p>
     </div>
   );
 }

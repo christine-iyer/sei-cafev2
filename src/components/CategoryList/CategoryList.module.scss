@@ -1,5 +1,5 @@
 .categorylist {
-     color: var(--text-light);
+     color: var(--text-dark);
      list-style: none;
      padding: 0;
      font-size: 1.7vw;
@@ -14,12 +14,12 @@
      
      .categorylist li:hover:not(.active) {
      cursor: pointer;
-     background-color: var(--rose-4);
-     color: var(--olive-4);
+     background-color: var(--orange);
+     color: var(--blue-3);
      }
      
      .categorylist li.active {
      color: var(--text-dark);
-     background-color: var(--green-1);
+     background-color: var(--blue-3);
      border: .1vmin solid var(--blue-1);
      }

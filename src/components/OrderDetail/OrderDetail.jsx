@@ -1,5 +1,6 @@
-
+import styles from './OrderDetail.module.scss'
 import LineItem from '../LineItem/LineItem';
+
 
 // Used to display the details of any order, including the cart (unpaid order)
 export default function OrderDetail({ order, handleChangeQty, handleCheckout }) {
@@ -15,10 +16,10 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
   );
 
   return (
-    <div className="OrderDetail">
-      <div className="section-heading">
+    <div className={styles.OrderDetail}>
+      <div className={styles.SectionHeading}>
         {order.isPaid ?
-          <span>ORDER <span className="smaller">{order.orderId}</span></span>
+          <span>ORDER <span className={styles.Smaller}>{order.orderId}</span></span>
           :
           <span>NEW ORDER</span>
         }
@@ -28,22 +29,22 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
         {lineItems.length ?
           <>
             {lineItems}
-            <section className="total">
+            <section className={styles.Total}>
               {order.isPaid ?
-                <span className="right">TOTAL&nbsp;&nbsp;</span>
+                <span className={styles.Right}>TOTAL&nbsp;&nbsp;</span>
                 :
                 <button
-                  className="btn-sm"
+                  className={styles.BtnSm}
                   onClick={handleCheckout}
                   disabled={!lineItems.length}
                 >CHECKOUT</button>
               }
               <span>{order.totalQty}</span>
-              <span className="right">${order.orderTotal.toFixed(2)}</span>
+              <span className={styles.Right}>${order.orderTotal.toFixed(2)}</span>
             </section>
           </>
           :
-          <div className="hungry">Hungry?</div>
+          <div className={styles.Hungry}>Hungry?</div>
         }
       </div>
     </div>
