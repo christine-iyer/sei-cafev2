@@ -24,7 +24,7 @@ export default function TodoList({
         <>
 <div className={styles.nowlist}>
 
-          <h1>Todo Items</h1>
+          <h1>Now</h1>
           <ul>
             {todos
               .filter((i) => !i.completed)
@@ -45,7 +45,7 @@ export default function TodoList({
 
           <div className={styles.neverlist}>
           
-          <h1>Completed Items </h1>
+          <h1>Never</h1>
           <ul>
             {todos
               .filter((i) => i.completed)
