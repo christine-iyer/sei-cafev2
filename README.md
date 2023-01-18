@@ -40,11 +40,12 @@
 **Error 400
 
 **```POST``` /api/users/login**
-
+```
 {
      "email": "Email@gmail.com",
      "password": "password"
 }
+```
 
 **```GET``` /api/users/check-token**
 
