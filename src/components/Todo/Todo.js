@@ -24,7 +24,7 @@ export default function Todo({ todo, completeTodo, editTodoText, deleteTodo }) {
         />
       </div>
       <label className="middle">
-        Complete
+        Done
         <input
           type="checkbox"
           checked={todo.completed}
@@ -39,7 +39,7 @@ export default function Todo({ todo, completeTodo, editTodoText, deleteTodo }) {
           deleteTodo(todo.id)
         }}
       >
-        Delete Todo
+        X
       </button>
     </li>
   )
