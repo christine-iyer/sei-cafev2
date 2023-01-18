@@ -19,6 +19,7 @@
 * SCSS
 * MongoDB
 * NodeJS & Express
+* JSONWebToken
 * Heroku
 * Postman
 * BigPoppa Code
