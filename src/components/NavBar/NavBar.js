@@ -11,6 +11,8 @@ export default function NavBar() {
       <Link to="/fruits">Fruit Page</Link>
       &nbsp; | &nbsp;
       <Link to="/todos">Todos Page</Link>
+      <Link to="/">Home</Link>
+    <a href=""  onClick={() => { logOut() }}>Logout</a>
      
 
     </nav>
