@@ -12,7 +12,7 @@ export default function NavBar() {
       &nbsp; | &nbsp;
       <Link to="/todos">Todos Page</Link>
       <Link to="/">Home</Link>
-    <a href=""  onClick={() => { logOut() }}>Logout</a>
+    {/* <a href=""  onClick={() => { logOut() }}>Logout</a> */}
      
 
     </nav>
