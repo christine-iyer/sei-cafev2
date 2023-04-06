@@ -1,18 +1,26 @@
 import styles from './MenuListItem.module.scss'
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 export default function MenuListItem({ menuItem, handleAddToOrder }) {
   return (
-    <div className="MenuListItem">
+    <Card className="MenuListItem">
+      
+        <Card.Title>{menuItem.name}</Card.Title>
+        
       <div className={styles.EmojiFlexCtrCtr}>
-        <img src={menuItem.emoji}></img>
+        
+        <Card.Img src={menuItem.emoji}></Card.Img>
         </div>
-      <div className={styles.Name}>{menuItem.name}</div>
+        <Card.Body>
+      {/* <div className={styles.Name}>{menuItem.name}</div> */}
       <div className="buy">
         <span>${menuItem.price.toFixed(2)}</span>
         <button className={styles.BtnSm} onClick={() => handleAddToOrder(menuItem._id)}>
           ADD
         </button>
       </div>
-    </div>
+      </Card.Body>
+    </Card>
   );
 }

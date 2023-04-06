@@ -10,6 +10,7 @@ import TodosPage from '../TodosPage/TodosPage'
 // import MainPage from '../MainPage/MainPage';
 // import MoviePage from '../MoviePage/MoviePage';
 import NavBar from '../../components/NavBar/NavBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 export default function App() {
   const [user, setUser] = useState(getUser());
   // const [classicMovies, setClassicMovies] = useState([])

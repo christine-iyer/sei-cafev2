@@ -3,7 +3,7 @@
   --blue-1: #E2E3D3;
   --blue-2: #302489;
   --blue-3: #69A791;
-  --grey: #a9b1b1;
+  --grey: red;
   --orange: #A4C2BF;
   --white: #FCF1CF;
   --text-dark:#706B5C;
@@ -71,7 +71,7 @@
   }
   
   .flex-ctr-ctr {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
   }
@@ -83,10 +83,10 @@
   .flex-j-end {
     justify-content: flex-end;
   }
-  
+/*   
   .scroll-y {
     overflow-y: scroll;
-  }
+  } */
   
   .section-heading {
     display: flex;
