@@ -1,12 +1,12 @@
 /* CSS Custom Properties */
 :root {
-  --blue-1: #38afb5;
-  --blue-2: #8bcfce;
-  --blue-3: #c7e9e9;
+  --blue-1: #E2E3D3;
+  --blue-2: #302489;
+  --blue-3: #69A791;
   --grey: #a9b1b1;
-  --orange: #ca8e3e;
-  --white: #fae8d1;
-  --text-dark:#5d3603;
+  --orange: #A4C2BF;
+  --white: #FCF1CF;
+  --text-dark:#706B5C;
   /* --pink-1: rgba(235,210,188,1);
   --pink-2: rgba(235,210,188,0.85);
   --pink-3: rgba(235,210,188, 0.75);
