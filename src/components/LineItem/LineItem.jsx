@@ -13,10 +13,7 @@ export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
       <div className="qty" style={{ justifyContent: isPaid && 'center' }}>
         {!isPaid &&
           <button
-            className="  display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(9%, 1fr));
-            grid-gap: 0.5rem;
-            height: 100vh;"
+            className="btn-xs"
             onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}
             >−</button>
           }
