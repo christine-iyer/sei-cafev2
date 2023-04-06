@@ -2,11 +2,12 @@
      width: 100%;
      display: grid;
      grid-template-columns: 3vw 15.35vw 5.75vw 5.25vw;
-     padding: 1vmin 0;
+     padding: 1rem;
      color: var(--text-light);
      background-color: #D3C0B2;
      border-top: .1vmin solid var(--blue-2);
      font-size: 1.5vw;
+     border-radius: 2%;
      }
      
      .LineItem:last-child {
@@ -36,3 +37,4 @@
           padding: 5px;
           width: 55px;
          }
+         
