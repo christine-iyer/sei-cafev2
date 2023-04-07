@@ -12,10 +12,11 @@ return (
       <Card.Subtitle>Order Id: <span className={styles.Smaller}>{order.orderId}</span></Card.Subtitle>
 
     </div>
-    <div className={styles.AlignRt}>
-      <div>${order.orderTotal.toFixed(2)}</div>
-      <div className={styles.Smaller}>{order.totalQty} Item{order.totalQty > 1 ? 's' : ''}</div>
-    </div>
+    <Card.Body className={styles.AlignRt}>
+      <span 
+      className={styles.Smaller}>{order.totalQty} Item{order.totalQty > 1 ? 's' : ''} ${order.orderTotal.toFixed(2)} 
+      </span>
+    </Card.Body>
    
   </Card>
 );

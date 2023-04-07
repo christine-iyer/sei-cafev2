@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import CloudinaryPage from '../../components/Cloudinary/Cloudinary'
 
 
 
@@ -108,6 +109,7 @@ export default function FruitsPage ({ user, setUser }){
                     <h3>{foundFruit.readyToEat? 'I am ready': 'I am not ready'}</h3>
                 </div>: <>No Fruit in Found Fruit State</>
             }
+            <CloudinaryPage />
             
         </>
     )
