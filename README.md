@@ -84,3 +84,29 @@ Index ```GET``` /api/todos
 
 
 
+https://ik.imagekit.io/**oxtwc3opy**/path/to/myimage.jpg
+**API** https://imagekit.io/dashboard/developer/api-keys
+
+```js
+//In order to use the SDK, you need to provide it with a few configuration parameters. 
+//The configuration parameters can be applied directly to the IKImage component or using 
+//an IKContext component.
+
+<IKContext
+  publicKey="public_ipLWb/WJh0FRyyAOLOkOSU1Iwxw="
+  urlEndpoint="https://ik.imagekit.io/oxtwc3opy"
+  transformationPosition="path"
+  authenticationEndpoint="http://www.yourserver.com/auth">
+
+  // Image component
+  <IKImage path="/default-image.jpg" transformation={[{
+    "height": "300",
+    "width": "400"
+  }]} />
+
+  // Image upload
+  <IKUpload fileName="my-upload" />
+</IKContext>
+```
+https://imagekit.io/blog/image-cropping-in-react-application/
+
