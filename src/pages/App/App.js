@@ -13,50 +13,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 export default function App() {
   const [user, setUser] = useState(getUser());
-  // const [classicMovies, setClassicMovies] = useState([])
-  //   const [newMovies, setNewMovies] = useState([])
 
-  //   const getOldMovies = async () => {
-  //     try {
-  //         const response = await fetch('https://imdb-top-100-movies.p.rapidapi.com/', {
-  //             method: "GET",
-  //             headers: {
-  //                 'X-RapidAPI-Key': `${process.env.REACT_APP_IMDB_TOP_TEN_KEY}`,
-  //                 'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com'
-  //             }
-  //         })
-  //         const data = await response.json()
-  //         setClassicMovies(data.slice(0,6))
-
-
-  //     } catch (error) {
-  //         console.error(error)
-  //     }
-  // }
-
-
-  // const getNewMovies = () => {
-
-  //     fetch('https://metacriticapi.p.rapidapi.com/movies/new?filter=date', {
-  //         method: "GET",
-  //         headers: {
-  //             'X-RapidAPI-Key': `${process.env.REACT_APP_IMDB_TOP_TEN_KEY}`,
-  //             'X-RapidAPI-Host': 'metacriticapi.p.rapidapi.com'
-  //         }
-  //     })
-  //         .then((metacriticResponse) => {
-  //             return metacriticResponse.json()
-  //         })
-  //         .then((metacriticData) => {
-  //             setNewMovies(metacriticData.slice(0, 10))
-  //         })
-
-  // }
-
-  // useEffect(() => {
-  //     getOldMovies()
-  //     getNewMovies()
-  // }, [])
   return (
     <main className={styles.App}>
       <NavBar />

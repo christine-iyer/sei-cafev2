@@ -79,7 +79,7 @@ const categories = [
      { name: 'Ask CPA', sortOrder:710 },
      { name: 'Other Income Expense', sortOrder:720 },
 ];
-const starterItems = [
+const starterExpenses = [
      { name: "R4", emoji: "oz", category: categories[0], price: 16.99 },
      { name: "ACDC", emoji: "oz", category: categories[0], price: 16.99 },
      { name: "MW", emoji: "oz", category: categories[0], price: 16.99 },
