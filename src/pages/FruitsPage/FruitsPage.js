@@ -92,6 +92,7 @@ export default function FruitsPage ({ user, setUser }){
                                 <li key={fruit._id}>
                                     {fruit.name} is {fruit.color} {fruit.readyToEat? 'and its ready to eat' : 'its not ready to eat'}
                                     <br/><button onClick={() => deleteFruit(fruit._id)}>X</button>
+                                    <br/><button onClick={() => updateFruit(fruit._id)}>E</button>
                                 </li>
                             )
                         })
